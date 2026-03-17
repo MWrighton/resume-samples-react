@@ -1,0 +1,9 @@
+.bingo-row {
+    background-color: darkgrey;
+    border: 3px solid black;
+}
+
+.bingo-box {
+    background-color: white;
+    border: 1px solid black;
+}
