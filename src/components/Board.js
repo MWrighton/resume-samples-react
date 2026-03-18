@@ -1,51 +1,47 @@
-import React, { Component } from 'react';
 import BoardSquare from './BoardSquare';
 import './Board.css'
 
-class Board extends Component{
-   render(){
-      return(
-         <div>
-            <h1>Game grid goes here.</h1>
-            <div className='bingo-board'>
-               <div className='bingo-row'>
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-               </div>
-               <div className='bingo-row'>
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-               </div>
-               <div className='bingo-row'>
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-               </div>
-               <div className='bingo-row'>
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-               </div>
-               <div className='bingo-row'>
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-                  <BoardSquare />
-               </div>
+export default function Board() {
+  return (
+      <div>
+         <h1>BINGO</h1>
+         <div className='bingo-board'>
+            <div className='bingo-column'>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+            </div>
+            <div className='bingo-column'>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+            </div>
+            <div className='bingo-column'>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText="FREE SPACE"/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+            </div>
+            <div className='bingo-column'>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+            </div>
+            <div className='bingo-column'>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText=""/>
             </div>
          </div>
-      );
-   }
+      </div>
+  );
 }
-export default Board;

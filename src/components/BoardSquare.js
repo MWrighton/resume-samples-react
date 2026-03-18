@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
 import './Board.css'
 
-class BoardSquare extends Component{
-   render(){
-      return(
-         <div className='bingo-box'>
-            This is a box in the bingo board.
-         </div>
-      );
-   }
+export default function BoardSquare({bingoText}) {
+  return (
+    <div className='bingo-box'>
+        {bingoText}
+    </div>
+  );
 }
-export default BoardSquare;

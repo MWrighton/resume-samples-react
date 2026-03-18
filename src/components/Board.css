@@ -3,10 +3,10 @@
     border: 3px solid black;
     height: auto;
     width: auto;
-    display: inline-block;
+    display: inline-flex;
 }
 
-.bingo-row {
+.bingo-column {
     display: inline-block;
 }
 
