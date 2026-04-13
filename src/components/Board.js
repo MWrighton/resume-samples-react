@@ -23,7 +23,7 @@ export default function Board() {
             <div className='bingo-column'>
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText=""/>
-               <BoardSquare bingoText="FREE SPACE"/>
+               <BoardSquare className='free-space' bingoText="FREE SPACE"/>
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText=""/>
             </div>
