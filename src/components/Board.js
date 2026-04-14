@@ -1,5 +1,6 @@
 import BoardSquare from './BoardSquare';
 import './Board.css'
+import Button from '@mui/material/Button';
 
 export default function Board() {
   return (
@@ -23,7 +24,7 @@ export default function Board() {
             <div className='bingo-column'>
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText=""/>
-               <BoardSquare className='free-space' bingoText="FREE SPACE"/>
+               <BoardSquare className='free-space' bingoText="FREE SPACE" isFree/>
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText=""/>
             </div>
@@ -41,6 +42,10 @@ export default function Board() {
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText=""/>
             </div>
+         </div>
+         <div>
+            <Button variant="contained">Upload</Button>
+            <Button variant="contained">Print</Button>
          </div>
       </div>
   );
