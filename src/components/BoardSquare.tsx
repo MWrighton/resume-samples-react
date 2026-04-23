@@ -1,9 +1,9 @@
 import './Board.css'
 
-export default function BoardSquare(bingoText: string, isFree: boolean) {
+export default function BoardSquare(props: {bingoText: string, isFree?: boolean}) {
   return (
     <div className='bingo-box'>
-        {isFree ? "FREE SPACE" : bingoText}
+        {props.isFree ? "FREE SPACE" : props.bingoText}
     </div>
   );
 }
