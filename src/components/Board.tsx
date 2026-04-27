@@ -42,7 +42,7 @@ export default function Board() {
             <div className='bingo-column'>
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText="HI"/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText="PUTTING IN LOTS AND LOTS OF TEXT SO THE OVERFLOW CSS CAN BE TESTED!"/>
                <BoardSquare bingoText=""/>
                <BoardSquare bingoText=""/>
             </div>

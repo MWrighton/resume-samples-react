@@ -11,13 +11,23 @@
 }
 
 .bingo-box {
+    /*Control box size, color, border*/
     background-color: white;
     border: 1px solid black;
     height: 5em;
     width: 5em;
+    /*center the text vertically and horizontally*/
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*Keep text in the box and show '...' if there is overflow*/
+.bingo-text-control {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 
 .free-space {
