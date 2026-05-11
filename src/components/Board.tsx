@@ -1,22 +1,23 @@
 import BoardSquare from './BoardSquare.tsx';
 import './Board.css'
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import { useState } from 'react'; // for file upload
 
 
 export default function Board() {
-   const [file, setFile] = useState<File | null>(null);
+   const [file, setFile] = useState <File | null> (null);
 
-  const chooseFile = async () => {
-    // Nothing here yet
-    console.log("SMACK!");
-  };
-  
-  /*(e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setFile(e.target.files[0]);
+  const chooseFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Make sure the target exists
+   if (event && event.target && event.target.files) {
+      console.log(event.target.files[0]);
+      setFile(event.target.files[0]);
+    } else {
+      // Display an error if there is no file to upload
+      console.log("No file found!");
     }
-  };*/
+  };
   
   const uploadFile = async () => {
     // Nothing here yet
@@ -69,7 +70,14 @@ export default function Board() {
             </div>
          </div>
          <div>
-            <Button variant="contained" onClick={chooseFile}>Choose File</Button>
+            <Button component="label" variant="contained">
+               Choose File
+               <TextField
+                  type="file"
+                  onChange={chooseFile}
+                  className='hide-input' // Hide the actual input field so it matches the other buttons
+               />
+            </Button>
             <Button variant="contained" onClick={uploadFile}>Upload</Button>
             <Button variant="contained" onClick={printFile}>Print</Button>
          </div>

@@ -34,3 +34,11 @@
     font-weight: bold;
     background-color: red;
 }
+
+/* Hide the input field so the file button matches the other buttons */
+.hide-input {
+  visibility: hidden;
+  position: relative;
+  width: 1px;
+  height: 1px;
+}
