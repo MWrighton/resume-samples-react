@@ -6,12 +6,13 @@ import { useState } from 'react'; // for file upload
 
 
 export default function Board() {
-   const [file, setFile] = useState <File | null> (null);
+   const [file, setFile] = useState <Blob | null> (null);
+   let fileReader: FileReader;
 
-  const chooseFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+   const chooseFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
     // Make sure the target exists
    if (event && event.target && event.target.files) {
-      console.log(event.target.files[0]);
+      //console.log(event.target.files[0]);
       setFile(event.target.files[0]);
     } else {
       // Display an error if there is no file to upload
@@ -19,14 +20,25 @@ export default function Board() {
     }
   };
   
-  const uploadFile = async () => {
-    // Nothing here yet
+  const generateBoard = (event: ProgressEvent<FileReader>) => {
     console.log("WHACK!");
+    const content = fileReader.result;
+    console.log(content)
   };
 
   const printFile = async () => {
     // Nothing here yet
     console.log("PRINT!");
+  };
+
+  // Extract the contents from the file
+  const readFile = () => {
+    console.log("FILE!");
+    fileReader = new FileReader();
+    fileReader.onloadend = generateBoard;
+    if (file !== null){
+      fileReader.readAsText(file);
+    }
   };
 
   return (
@@ -78,7 +90,13 @@ export default function Board() {
                   className='hide-input' // Hide the actual input field so it matches the other buttons
                />
             </Button>
-            <Button variant="contained" onClick={uploadFile}>Upload</Button>
+            <Button
+               variant="contained"
+               onClick={readFile}
+               disabled={!file} // If there is no file selected the user should not be able to generate a board
+            >
+               Generate Board
+            </Button>
             <Button variant="contained" onClick={printFile}>Print</Button>
          </div>
       </div>
