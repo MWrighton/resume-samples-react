@@ -7,6 +7,7 @@ import { useState } from 'react'; // for file upload
 
 export default function Board() {
    const [file, setFile] = useState <Blob | null> (null);
+   const [boardData, setBoardData] = useState <Array> ([]);
    let fileReader: FileReader;
 
    const chooseFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,9 +22,17 @@ export default function Board() {
   };
   
   const generateBoard = (event: ProgressEvent<FileReader>) => {
-    console.log("WHACK!");
     const content = fileReader.result;
-    console.log(content)
+    // If the file has sufficient content set it to the board
+    if (content) {
+      const newData = content.toString().split("\n");
+      if (newData.length >= 24) { // We technically only need 24 slots since one is a free space
+         setBoardData(newData);
+      }
+    } else {
+      // Display an error if there is no file to upload
+      console.log("Error - empty file");
+    }
   };
 
   const printFile = async () => {
@@ -33,7 +42,6 @@ export default function Board() {
 
   // Extract the contents from the file
   const readFile = () => {
-    console.log("FILE!");
     fileReader = new FileReader();
     fileReader.onloadend = generateBoard;
     if (file !== null){
@@ -46,39 +54,39 @@ export default function Board() {
          <h1>BINGO</h1>
          <div className='bingo-board'>
             <div className='bingo-column'>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[0] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[1] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[2] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[3] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[4] : ""}/>
             </div>
             <div className='bingo-column'>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText="HI"/>
-               <BoardSquare bingoText="PUTTING IN LOTS AND LOTS OF TEXT SO THE OVERFLOW CSS CAN BE TESTED!"/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[5] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[6] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[7] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[8] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[9] : ""}/>
             </div>
             <div className='bingo-column'>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[10] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[11] : ""}/>
                <BoardSquare bingoText="" isFree/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[12] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[13] : ""}/>
             </div>
             <div className='bingo-column'>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[14] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[15] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[16] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[17] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[18] : ""}/>
             </div>
             <div className='bingo-column'>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
-               <BoardSquare bingoText=""/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[19] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[20] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[21] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[22] : ""}/>
+               <BoardSquare bingoText={boardData.length > 0 ? boardData[23] : ""}/>
             </div>
          </div>
          <div>
